@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Comando - Proyecto AR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans">
+
+    <!-- Barra de Navegación / Encabezado -->
+    <header class="bg-slate-900 text-white py-4 px-6 shadow-md flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <i data-lucide="scan" class="w-8 h-8 text-blue-400"></i>
+            <div>
+                <h1 class="text-xl font-bold">Centro de Comando AR</h1>
+                <p class="text-xs text-slate-400">Sistema de Gestión de Activos para Realidad Aumentada</p>
+            </div>
+        </div>
+        <div class="text-sm bg-slate-800 px-3 py-1 rounded-full border border-slate-700 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+            Sistema Operativo
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-8 px-4 grid grid-cols-1 xl:grid-cols-3 gap-8">
+        
+        <!-- Columna Izquierda: Instrucciones (Perfil Gerencia) -->
+        <div class="xl:col-span-1 space-y-6">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2 mb-4">
+                    <i data-lucide="clipboard-list" class="text-blue-600"></i>
+                    Protocolo de Despliegue
+                </h2>
+                
+                <ol class="relative border-l border-slate-300 ml-3 space-y-5 text-sm text-slate-600">
+                    <li class="pl-4">
+                        <div class="absolute w-3 h-3 bg-blue-600 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                        <strong class="text-slate-800 block mb-1">Paso 1: Generar Target (.mind)</strong>
+                        Usa la herramienta de la derecha. Sube las imágenes de las páginas de tu libro. Haz clic en "Start" y descarga el archivo `targets.mind`.
+                    </li>
+                    <li class="pl-4">
+                        <div class="absolute w-3 h-3 bg-slate-300 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                        <strong class="text-slate-800 block mb-1">Paso 2: Alojamiento (Hosting)</strong>
+                        Sube tu archivo `targets.mind` y tus modelos 3D (`.glb`) a GitHub. Activa <b>GitHub Pages</b> para obtener enlaces web directos y seguros (HTTPS).
+                    </li>
+                    <li class="pl-4">
+                        <div class="absolute w-3 h-3 bg-slate-300 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                        <strong class="text-slate-800 block mb-1">Paso 3: Integración de Activos</strong>
+                        En el código de la aplicación de escaneo, actualiza la sección <code>AR_CONFIG</code> pegando los links directos de GitHub obtenidos en el Paso 2.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="bg-blue-50 rounded-xl shadow-sm border border-blue-200 p-6">
+                <h2 class="text-md font-bold text-blue-900 flex items-center gap-2 mb-2">
+                    <i data-lucide="alert-triangle" class="text-yellow-500"></i>
+                    Nota Técnica de Riesgos
+                </h2>
+                <p class="text-sm text-blue-800">
+                    Para que la cámara detecte correctamente el libro, las imágenes deben tener <b>alto contraste y asimetría</b>. Páginas con solo texto plano o mucho espacio en blanco son difíciles de rastrear por la Inteligencia Artificial.
+                </p>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Compilador Oficial -->
+        <div class="xl:col-span-2">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-1 flex flex-col h-full">
+                <div class="bg-slate-50 border-b border-slate-200 p-3 rounded-t-lg flex justify-between items-center">
+                    <h3 class="font-bold text-slate-700 flex items-center gap-2">
+                        <i data-lucide="cpu" class="text-slate-500"></i>
+                        Módulo Compilador Neural (Oficial)
+                    </h3>
+                </div>
+                
+                <!-- Iframe conectando de forma segura a la herramienta oficial -->
+                <div class="flex-grow rounded-b-lg overflow-hidden bg-slate-100 min-h-[600px] relative">
+                    <iframe 
+                        src="https://hiukim.github.io/mind-ar-js-doc/tools/compile" 
+                        class="w-full h-full absolute top-0 left-0 border-0"
+                        title="MindAR Compiler">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Inicializar Iconos
+        lucide.createIcons();
+    </script>
+</body>
+</html>
